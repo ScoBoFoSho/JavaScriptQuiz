@@ -84,17 +84,17 @@ footer {
   width: 95%;
 }
 
-.task-list-wrapper {
+.quiz-list-wrapper {
   flex: 1;
   margin: 0 20px 20px;
 }
 
-.list-title {
+.quiz-title {
   color: var(--secondary);
   font-size: 2.6rem;
 }
 
-.task-list {
+.quiz-list {
   list-style: none;
   padding: 15px;
   height: calc(100% - 50px);
@@ -103,7 +103,7 @@ footer {
   border: 2px solid var(--grey);
 }
 
-.task-item {
+.quiz-item {
   color: var(--grey);
   padding: 15px 15px;
   border: 2px solid var(--grey);
@@ -112,16 +112,16 @@ footer {
   margin-bottom: 20px;
 }
 
-.task-name {
+.quiz-name {
   margin: 0;
   font-size: 1.8rem;
 }
 
-.task-type {
+.quiz-type {
   color: var(--secondary);
   font-size: 1.55rem;
 }
-.task-actions {
+.quiz-actions {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
