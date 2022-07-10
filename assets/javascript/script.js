@@ -1,42 +1,39 @@
-var buttonEl = document.querySelector("#take-quiz");
-// console.log(buttonEl);
+var timerEl = document.getElementById("countdown");
+var mainEl = document.getElementById("main");
+var btn = document.getElementById("btn-section-3");
+var numberQuestion = 1;
 
-buttonEl.addEventListener("click", function () {
-  ("the clankers are coming!");
+function countdown() {
+  var timeLeft = 60;
+
+  // describe function of the timer
+  var timeInterval = setInterval(function () {
+    if (timeLeft > 1) {
+      timerEl.textContent = timeLeft + "seconds remaining";
+      timeLeft--;
+    } else if (timeLeft === 1) {
+      timerEl.textContent = timeLeft + "seconds remaining";
+      timeLeft--;
+    } else {
+      timerEl.textContent = "";
+      clearInterval(timeInterval);
+      displayMessage();
+    }
+  }, 1000);
+}
+document.querySelectorAll(".new-answer").forEach(function (answer) {
+  answer.addEventListener("click", function (event) {
+    console.log(event.target.textContent);
+    document
+      .getElementById("question-" + numberQuestion)
+      .classList.add("hidden");
+    numberQuestion += 1;
+    document
+      .getElementById("question-" + numberQuestion)
+      .classList.remove("hidden");
+  });
 });
-
-var buttonEl = document.querySelector("#save-quiz");
-var quizToDoEl = document.querySelector("#quiz-to-do");
-
-let question = (document.getElementById("question").innerHTML =
-  quiz.quests[0].question);
-let answer1 = (document.getElementById("answer1").innerHTML =
-  quiz.quests[0].answer[0].alt);
-let answer2 = (document.getElementById("answer2").innerHTML =
-  quiz.quests[0].answer[1].alt);
-let answer3 = (document.getElementById("answer3").innerHTML =
-  quiz.quests[0].answer[2].alt);
-let answer4 = (document.getElementById("answer4").innerHTML =
-  quiz.quests[0].answer[3].alt);
-
-// var timerEle = document.getElementByID("countdown");
-// var mainEle = doucment.getElementByID("main");
-
-// function countdown() {
-//   var timeLeft = 60;
-
-//   // describe function of the timer
-//   var timeInterval = setInterval(function () {
-//     if (timeLeft > 1) {
-//       timerEle.textContent = timeLeft + "seconds remaining";
-//       timeLeft--;
-//     } else if (timeLeft === 1) {
-//       timerEle.textContent = timeLeft + "seconds remaining";
-//       timeLeft--;
-//     } else {
-//       timerEle.textContent = "";
-//       clearInterval(timeInterval);
-//       displayMessage();
-//     }
-//   }, 1000);
-// }
+document.getElementById("take-quiz").addEventListener("click", function () {
+  countdown();
+  document.getElementById("question-1").classList.remove("hidden");
+});

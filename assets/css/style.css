@@ -215,6 +215,9 @@ footer {
   font-weight: normal;
   font-size: 2rem;
 }
+.hidden {
+  display: none;
+}
 
 @media screen and (max-width: 980px) {
   form .form-group {
