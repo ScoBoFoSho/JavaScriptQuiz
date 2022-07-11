@@ -23,7 +23,7 @@ function countdown() {
 }
 document.querySelectorAll(".new-answer").forEach(function (answer) {
   answer.addEventListener("click", function (event) {
-    console.log(event.target.textContent);
+    console.log(event.target.dataset.correct);
     document
       .getElementById("question-" + numberQuestion)
       .classList.add("hidden");
@@ -37,3 +37,9 @@ document.getElementById("take-quiz").addEventListener("click", function () {
   countdown();
   document.getElementById("question-1").classList.remove("hidden");
 });
+
+function saveScore() {
+  var score = 48; //replace this with actual score from HTML
+  localStorage.setItem("highscore", score);
+}
+// var highscore = localStorage.getItem("highscore")
