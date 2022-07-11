@@ -6,44 +6,72 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>JavaScript Quiz</title>
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
+    <link
+      rel="shortcut icon"
+      type="favicon.png"
+      href="./assets/images/QuizPic.png"
+    />
   </head>
 
   <body>
     <header>
       <h1 class="page-title">JavaScript Quiz</h1>
       <p>Click the button below to take a JS fundamentals quiz!</p>
-      <button class="btn" id="take-quiz">Take Quiz</button>
-      <h3 id="countdown"></h3>
+      <button class="btn" id="take-quiz" id="remove-btn">Take Quiz</button>
+      <h1 id="countdown"></h1>
     </header>
 
-    <main class="main">
+    <main class="quiz-item">
       <section class="quiz-list-wrapper">
         <ul class="quiz-list" id="quiz-to-do">
           <li class="quiz-item">A quiz is going to be added soon!</li>
         </ul>
+        <div class="hidden" id="question-1">
+          <h1>Which of the following is NOT a form of programming data?</h1>
+          <button data-correct="true" class="new-answer">Units</button><br />
+          <button data-correct="false" class="new-answer">Boolean</button><br />
+          <button data-correct="false" class="new-answer">Strings</button><br />
+          <button data-correct="false" class="new-answer">Null</button><br />
+        </div>
+        <div class="hidden" id="question-2">
+          <h1>How do you declare a variable?</h1>
+          <button data-correct="false" class="new-answer">NewVar = 10</button
+          ><br />
+          <button data-correct="true" class="new-answer">Var NewVar = 10</button
+          ><br />
+          <button data-correct="false" class="new-answer">if NewVar = 10</button
+          ><br />
+          <button data-correct="false" class="new-answer">Var = 10</button
+          ><br />
+        </div>
+        <div class="hidden" id="question-3">
+          <h1>
+            which of the following would you use to link your JavaScript to the
+            webpage?
+          </h1>
+          <button data-correct="false" class="new-answer">Answer 1</button
+          ><br />
+          <button data-correct="false" class="new-answer">Answer 2</button
+          ><br />
+          <button data-correct="false" class="new-answer">Answer 3</button
+          ><br />
+          <button data-correct="true" class="new-answer">
+            <br />
+            All of the Above
+          </button>
+        </div>
+        <div class="hidden" id="question-4">
+          <h1>This is a question, too?</h1>
+          <button data-correct="true" class="new-answer">Answer 1</button>
+          <button data-correct="false" class="new-answer">Answer 2</button>
+          <button data-correct="false" class="new-answer">Answer 3</button>
+          <button data-correct="false" class="new-answer">Answer 4</button>
+        </div>
+        <div class="hidden" id="question-5">
+          <h1>Quiz OVER!</h1>
+        </div>
       </section>
     </main>
-    <div class="hidden" id="question-1">
-      <h3>What question will end up going here?</h3>
-      <button data-correct="true" class="new-answer">Answer 1</button>
-      <button data-correct="false" class="new-answer">Answer 2</button>
-      <button data-correct="false" class="new-answer">Answer 3</button>
-      <button data-correct="false" class="new-answer">Answer 4</button>
-    </div>
-    <div class="hidden" id="question-2">
-      <h3>This is to see a new question?</h3>
-      <button class="new-answer">Answer 1</button>
-      <button class="new-answer">Answer 2</button>
-      <button class="new-answer">Answer 3</button>
-      <button class="new-answer">Answer 4</button>
-    </div>
-    <div class="hidden" id="question-3">
-      <h3>This is a question, too?</h3>
-      <button class="new-answer">Answer 1</button>
-      <button class="new-answer">Answer 2</button>
-      <button class="new-answer">Answer 3</button>
-      <button class="new-answer">Answer 4</button>
-    </div>
     <script src="./assets/javascript/script.js"></script>
   </body>
   <footer>&copy;2022 by JS Quiz</footer>

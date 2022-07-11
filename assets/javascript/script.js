@@ -21,8 +21,10 @@ function countdown() {
     }
   }, 1000);
 }
+
 document.querySelectorAll(".new-answer").forEach(function (answer) {
   answer.addEventListener("click", function (event) {
+    document.getElementbyId("take-quiz");
     console.log(event.target.dataset.correct);
     document
       .getElementById("question-" + numberQuestion)
