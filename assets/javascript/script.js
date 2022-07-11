@@ -44,4 +44,5 @@ function saveScore() {
   var score = 48; //replace this with actual score from HTML
   localStorage.setItem("highscore", score);
 }
+
 // var highscore = localStorage.getItem("highscore")
