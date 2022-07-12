@@ -2,46 +2,62 @@ var timerEl = document.getElementById("countdown");
 var mainEl = document.getElementById("main");
 var btn = document.getElementById("btn-section-3");
 var numberQuestion = 1;
+var timeLeft = 40;
+var score = 0;
+var timeInterval = null;
 
 function countdown() {
-  var timeLeft = 60;
-
   // describe function of the timer
-  var timeInterval = setInterval(function () {
-    if (timeLeft > 1) {
-      timerEl.textContent = timeLeft + "seconds remaining";
-      timeLeft--;
-    } else if (timeLeft === 1) {
+  timeInterval = setInterval(function () {
+    if (timeLeft > 0) {
       timerEl.textContent = timeLeft + "seconds remaining";
       timeLeft--;
     } else {
-      timerEl.textContent = "";
+      timerEl.textContent = "Times Up!";
       clearInterval(timeInterval);
-      displayMessage();
+      saveScore();
     }
   }, 1000);
 }
 
 document.querySelectorAll(".new-answer").forEach(function (answer) {
   answer.addEventListener("click", function (event) {
-    document.getElementbyId("take-quiz");
     console.log(event.target.dataset.correct);
     document
       .getElementById("question-" + numberQuestion)
       .classList.add("hidden");
     numberQuestion += 1;
-    document
-      .getElementById("question-" + numberQuestion)
-      .classList.remove("hidden");
+    if (event.target.dataset.correct === "true") {
+      score += 5;
+    } else {
+      timeLeft -= 5;
+    }
+    if (numberQuestion > 4) {
+      clearInterval(timeInterval);
+      saveScore();
+    } else {
+      document
+        .getElementById("question-" + numberQuestion)
+        .classList.remove("hidden");
+    }
   });
 });
-document.getElementById("take-quiz").addEventListener("click", function () {
-  countdown();
-  document.getElementById("question-1").classList.remove("hidden");
-});
+document
+  .getElementById("take-quiz")
+  .addEventListener("click", function (event) {
+    event.target.classList.add("hidden");
+    countdown();
+    document.getElementById("question-1").classList.remove("hidden");
+  });
 
 function saveScore() {
-  var score = 48; //replace this with actual score from HTML
-  localStorage.setItem("highscore", score);
+  document.getElementById("highScoreScreen").classList.remove("hidden");
 }
-// var highscore = localStorage.getItem("highscore")
+document.getElementById("submitScore").addEventListener("click", function () {
+  console.log(score);
+  var highScoreName = document.getElementById("highScoreName").value;
+  console.log(highScoreName);
+  localStorage.setItem("highscore", JSON.stringify("score"));
+  var highscore = localStorage.getItem("highscore");
+  console.log(highscore);
+});

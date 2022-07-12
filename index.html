@@ -17,7 +17,7 @@
     <header>
       <h1 class="page-title">JavaScript Quiz</h1>
       <p>Click the button below to take a JS fundamentals quiz!</p>
-      <button class="btn" id="take-quiz" id="remove-btn">Take Quiz</button>
+      <button class="btn" id="take-quiz">Take Quiz</button>
       <h1 id="countdown"></h1>
     </header>
 
@@ -45,30 +45,41 @@
           ><br />
         </div>
         <div class="hidden" id="question-3">
-          <h1>
-            which of the following would you use to link your JavaScript to the
-            webpage?
-          </h1>
-          <button data-correct="false" class="new-answer">Answer 1</button
+          <h1>Where would you link your JavaScript to the webpage?</h1>
+          <button data-correct="false" class="new-answer">In Your CSS</button
           ><br />
-          <button data-correct="false" class="new-answer">Answer 2</button
+          <button data-correct="false" class="new-answer">
+            At the top of the HTML</button
           ><br />
-          <button data-correct="false" class="new-answer">Answer 3</button
+          <button data-correct="false" class="new-answer">
+            It Links Automatically</button
           ><br />
           <button data-correct="true" class="new-answer">
-            <br />
-            All of the Above
+            At the bottom of the HTML
           </button>
         </div>
         <div class="hidden" id="question-4">
-          <h1>This is a question, too?</h1>
-          <button data-correct="true" class="new-answer">Answer 1</button>
-          <button data-correct="false" class="new-answer">Answer 2</button>
-          <button data-correct="false" class="new-answer">Answer 3</button>
-          <button data-correct="false" class="new-answer">Answer 4</button>
+          <h1>Am I trying hard to do well in this class?</h1>
+          <button data-correct="true" class="new-answer">
+            Yes... mostly... it's moving so fast
+          </button>
+          <br />
+          <button data-correct="false" class="new-answer">
+            No. I enjoy failing</button
+          ><br />
+          <button data-correct="false" class="new-answer">
+            I really love failing</button
+          ><br />
+          <button data-correct="false" class="new-answer">
+            Don't click this one, buddy
+          </button>
         </div>
         <div class="hidden" id="question-5">
           <h1>Quiz OVER!</h1>
+        </div>
+        <div class="hidden" id="highScoreScreen">
+          <input id="highScoreName" />
+          <button id="submitScore">Submit HighScore</button>
         </div>
       </section>
     </main>
