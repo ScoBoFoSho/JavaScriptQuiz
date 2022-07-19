@@ -2,7 +2,7 @@ var timerEl = document.getElementById("countdown");
 var mainEl = document.getElementById("main");
 var btn = document.getElementById("btn-section-3");
 var numberQuestion = 1;
-var timeLeft = 40;
+var timeLeft = 100;
 var score = 0;
 var timeInterval = null;
 
@@ -42,6 +42,7 @@ document.querySelectorAll(".new-answer").forEach(function (answer) {
     }
   });
 });
+
 document
   .getElementById("take-quiz")
   .addEventListener("click", function (event) {
@@ -53,11 +54,22 @@ document
 function saveScore() {
   document.getElementById("highScoreScreen").classList.remove("hidden");
 }
+
 document.getElementById("submitScore").addEventListener("click", function () {
   console.log(score);
+
   var highScoreName = document.getElementById("highScoreName").value;
+
   console.log(highScoreName);
-  localStorage.setItem("highscore", JSON.stringify("score"));
-  var highscore = localStorage.getItem("highscore");
+
+  var myObject = {
+    userName: highScoreName,
+    userScore: timeLeft,
+  };
+
+  localStorage.setItem("highscore", JSON.stringify(myObject));
+
+  var highscore = localStorage.getItem(highscore);
+
   console.log(highscore);
 });
