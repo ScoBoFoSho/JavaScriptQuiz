@@ -6,6 +6,14 @@ var timeLeft = 100;
 var score = 0;
 var timeInterval = null;
 
+function displaySavedScores() {
+  var existingScores = JSON.parse(localStorage.getItem("highscore"));
+  console.log("existingScores is", existingScores);
+
+  // if (existingScores) {
+
+  // }
+}
 function countdown() {
   // describe function of the timer
   timeInterval = setInterval(function () {
@@ -73,3 +81,5 @@ document.getElementById("submitScore").addEventListener("click", function () {
 
   console.log(highscore);
 });
+
+displaySavedScores();
