@@ -7,16 +7,27 @@ var score = 0;
 var timeInterval = null;
 
 // James' Advice: set a var for parsing from local storage; if not pulling from local storatge, be an empty array
-var savedScores = JSON.parse(localStorage.getItem("highscore")) || [];
+// var savedScores = JSON.parse(localStorage.getItem("highscore")) || [];
+// console.log('savedScores is', savedScores);
+var savedScoresArray = [];
 
 function displaySavedScores() {
-  if (savedScores.length != 0) {
-    console.log("savedScores length is", savedScores.length);
+  var savedScores = localStorage.getItem("highscore");
+
+  if (!savedScores) {
+    console.log('No saved scores to load from storage!');
+    // savedScoresArray.push(savedScores);
+    // console.log('savedScoresArray is', savedScoresArray);
   } else {
-    consolelog("no saved scores in local storage");
+    var parsedScores = JSON.parse(savedScores);
+    console.log("parsedScores is", parsedScores);
+    savedScoresArray = parsedScores;
+    console.log('savedScoresArray is now', savedScoresArray);
+    highScoreList.innerHTML = savedScoresArray;
   }
 }
-//   var existingScores = JSON.parse(localStorage.getItem("highscore"));
+
+//   var existingScores = JSON.parse(localScctorage.getItem("highscore"));
 //   console.log("existingScores is", existingScores);
 
 //   if (existingScores) {
@@ -85,12 +96,11 @@ document.getElementById("submitScore").addEventListener("click", function () {
     userScore: timeLeft,
   };
 
-  if (savedScores) {
-    savedScores = myObject;
-  }
-  console.log("savedScores is now", savedScores);
+  savedScoresArray.push(myObject);
 
-  localStorage.setItem("highscore", JSON.stringify(savedScores));
+  // console.log("savedScores is now", savedScores);
+
+  localStorage.setItem("highscore", JSON.stringify(savedScoresArray));
 });
 
 displaySavedScores();
