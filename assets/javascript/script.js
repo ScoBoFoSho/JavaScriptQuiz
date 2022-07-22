@@ -6,14 +6,22 @@ var timeLeft = 100;
 var score = 0;
 var timeInterval = null;
 
+// James' Advice: set a var for parsing from local storage; if not pulling from local storatge, be an empty array
+var savedScores = JSON.parse(localStorage.getItem("highscore")) || [];
+
 function displaySavedScores() {
-  var existingScores = JSON.parse(localStorage.getItem("highscore"));
-  console.log("existingScores is", existingScores);
-
-  // if (existingScores) {
-
-  // }
+  if (savedScores.length != 0) {
+    console.log("savedScores length is", savedScores.length);
+  } else {
+    consolelog("no saved scores in local storage");
+  }
 }
+//   var existingScores = JSON.parse(localStorage.getItem("highscore"));
+//   console.log("existingScores is", existingScores);
+
+//   if (existingScores) {
+//   }
+// }
 function countdown() {
   // describe function of the timer
   timeInterval = setInterval(function () {
@@ -38,7 +46,7 @@ document.querySelectorAll(".new-answer").forEach(function (answer) {
     if (event.target.dataset.correct === "true") {
       score += 5;
     } else {
-      timeLeft -= 5;
+      timeLeft -= 20;
     }
     if (numberQuestion > 4) {
       clearInterval(timeInterval);
@@ -68,18 +76,21 @@ document.getElementById("submitScore").addEventListener("click", function () {
 
   var highScoreName = document.getElementById("highScoreName").value;
 
-  console.log(highScoreName);
+  console.log("highScoreName is", highScoreName);
+
+  // var existingUserScores = JSON.parse(localStorage.getItem("highscore"));
 
   var myObject = {
     userName: highScoreName,
     userScore: timeLeft,
   };
 
-  localStorage.setItem("highscore", JSON.stringify(myObject));
+  if (savedScores) {
+    savedScores = myObject;
+  }
+  console.log("savedScores is now", savedScores);
 
-  var highscore = localStorage.getItem(highscore);
-
-  console.log(highscore);
+  localStorage.setItem("highscore", JSON.stringify(savedScores));
 });
 
 displaySavedScores();
